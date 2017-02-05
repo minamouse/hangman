@@ -1,15 +1,96 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/style.css" rel="stylesheet">
     <script src='https://code.jquery.com/jquery.js'></script>
   </head>
   <body>
-    <p>Your word: <span id='current_word'></span></p><br>
-    <p>Guesses: <span id='all_guesses'></span></p><br>
-    <form action='/guess' id='guess_input' method='POST'>
-      <input type='text' name='text' id='guess_input_text' pattern='[A-Za-z]{1}'>
-      <input type='submit' name='submit'>
-    </form>
+    <div class="container-fluid">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <pre id='n0'>       ------
+      |     |
+      |
+      |
+      |
+      |
+      |
+      |
+_____________
+</pre>
+        <pre id='n1'>       ------
+      |     |
+      |     o
+      |
+      |
+      |
+      |
+      |
+_____________
+</pre>
+<pre id='n2'>       ------
+      |     |
+      |     o
+      |     |
+      |     |
+      |
+      |
+      |
+_____________
+</pre>
+<pre id='n3'>       ------
+      |     |
+      |     o
+      |     |
+      |     |
+      |    / 
+      |
+      |
+_____________
+</pre>
+<pre id='n4'>       ------
+      |     |
+      |     o
+      |     |
+      |     |
+      |    / \ 
+      |
+      |
+_____________
+</pre>
+<pre id='n5'>       ------
+      |     |
+      |     o
+      |    /|
+      |     |
+      |    / \ 
+      |
+      |
+_____________
+</pre>
+<pre id='n6'>       ------
+      |     |
+      |     o
+      |    /|\
+      |     |
+      |    / \ 
+      |
+      |
+_____________
+</pre>
+        <p><span id='current_word'></span></p><br>
+        <p>Guesses: <span id='all_guesses'></span></p><br>
+        <form action='/guess' id='guess_input' method='POST'>
+          <input type='text' name='text' id='guess_input_text' pattern='[A-Za-z]{1}'>
+          <input type='submit' id='submit_button' name='submit'>
+          <span id='message' class='incorrect'></span>
+        </form><br>
+        <form action='/reset' id='reset_game' method='POST'>
+          <input type='submit' id='reset_button' name='reset' value='NEW GAME'>
+        </form>
+        <h1 id="victory_status"></h1>
+      </div>
+    </div>
     <script src='static/game.js'></script>
   </body>
 </html>
