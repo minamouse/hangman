@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src='https://code.jquery.com/jquery.js'></script>
   </head>
   <body>
+    <p>Your word: <span id='current_word'></span></p><br>
+    <p>Guesses: <span id='all_guesses'></span></p><br>
+    <form action='/guess' id='guess_input' method='POST'>
+      <input type='text' name='text' id='guess_input_text' pattern='[A-Za-z]{1}'>
+      <input type='submit' name='submit'>
+    </form>
+    <script src='static/game.js'></script>
   </body>
 </html>
