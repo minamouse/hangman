@@ -53,7 +53,6 @@ ALTER TABLE types OWNER TO marina;
 CREATE TABLE users (
     user_id integer NOT NULL,
     username character varying(30),
-    email character varying(50) NOT NULL,
     password character varying(20) NOT NULL,
     wins integer,
     games_played integer
@@ -158,7 +157,15 @@ x	negation
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: marina
 --
 
-COPY users (user_id, username, email, password, wins, games_played) FROM stdin;
+COPY users (user_id, username, password, wins, games_played) FROM stdin;
+2	dave	hahahaha	0	2
+3	balloonicorn	sparkles	0	1
+1	marina	marina	16	18
+4	bob	bob	59	108
+5	notbob	notbob	39	103
+6	cyndie	c	24	39
+7	ray	r	33	35
+8	baymax	b	1	1
 \.
 
 
@@ -166,7 +173,7 @@ COPY users (user_id, username, email, password, wins, games_played) FROM stdin;
 -- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: marina
 --
 
-SELECT pg_catalog.setval('users_user_id_seq', 1, false);
+SELECT pg_catalog.setval('users_user_id_seq', 8, true);
 
 
 --
@@ -5190,14 +5197,6 @@ SELECT pg_catalog.setval('words_rank_seq', 1, false);
 
 ALTER TABLE ONLY types
     ADD CONSTRAINT types_pkey PRIMARY KEY (type_id);
-
-
---
--- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: marina
---
-
-ALTER TABLE ONLY users
-    ADD CONSTRAINT users_email_key UNIQUE (email);
 
 
 --
