@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body%}
+
+<ul>
+    {% for user in data %}
+      <li>{{user[0]}} : {{user[1]}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

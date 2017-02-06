@@ -35,14 +35,13 @@ class User(db.Model):
 
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     username = db.Column(db.String(30), unique=True, nullable=True)
-    email = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(20), nullable=False)
     wins = db.Column(db.Integer, nullable=True)
     games_played = db.Column(db.Integer, nullable=True)
 
     def __repr__(self):
 
-        return '<%s - %s - %s>' % (self.user_id, self.username, self.email)
+        return '<%s - %s>' % (self.user_id, self.username)
 
 
 def connect_to_db(app):

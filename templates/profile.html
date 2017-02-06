@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body%}
+<div class="container">
+  <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+    <h1 class="text-center">{{ session['user'] }}</h1><br>
+    <h3 class="text-center">{{ games_won }} GAMES WON!</h3><br>
+    <h3 class="text-center">{{ games_played }} GAMES PLAYED</h3><br>
+  </div>
+</div> <!-- /container -->
+
+{% endblock %}

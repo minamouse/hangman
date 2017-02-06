@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/style.css" rel="stylesheet">
-    <script src='https://code.jquery.com/jquery.js'></script>
-  </head>
-  <body>
+{% extends "base.html" %}
+{% block body %}    
     <div class="container-fluid">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
         <pre id='n0'>       ------
@@ -18,7 +12,7 @@
       |
 _____________
 </pre>
-        <pre id='n1'>       ------
+        <pre hidden id='n1'>       ------
       |     |
       |     o
       |
@@ -28,7 +22,7 @@ _____________
       |
 _____________
 </pre>
-<pre id='n2'>       ------
+<pre hidden id='n2'>       ------
       |     |
       |     o
       |     |
@@ -38,7 +32,7 @@ _____________
       |
 _____________
 </pre>
-<pre id='n3'>       ------
+<pre hidden id='n3'>       ------
       |     |
       |     o
       |     |
@@ -48,7 +42,7 @@ _____________
       |
 _____________
 </pre>
-<pre id='n4'>       ------
+<pre hidden id='n4'>       ------
       |     |
       |     o
       |     |
@@ -58,7 +52,7 @@ _____________
       |
 _____________
 </pre>
-<pre id='n5'>       ------
+<pre hidden id='n5'>       ------
       |     |
       |     o
       |    /|
@@ -68,7 +62,7 @@ _____________
       |
 _____________
 </pre>
-<pre id='n6'>       ------
+<pre hidden id='n6'>       ------
       |     |
       |     o
       |    /|\
@@ -78,19 +72,21 @@ _____________
       |
 _____________
 </pre>
-        <p><span id='current_word'></span></p><br>
+        <p><span id='current_word'>_</span></p><br>
         <p>Guesses: <span id='all_guesses'></span></p><br>
         <form action='/guess' id='guess_input' method='POST'>
           <input type='text' name='text' id='guess_input_text' pattern='[A-Za-z]{1}'>
-          <input type='submit' id='submit_button' name='submit'>
+          <button class="btn btn-sm btn-default" type="submit">Guess</button>
+          <!-- <input type='submit' id='submit_button' name='submit'> -->
           <span id='message' class='incorrect'></span>
         </form><br>
         <form action='/reset' id='reset_game' method='POST'>
-          <input type='submit' id='reset_button' name='reset' value='NEW GAME'>
+          <button class="btn btn-sm btn-success" type="submit">NEW GAME</button>
         </form>
         <h1 id="victory_status"></h1>
       </div>
     </div>
     <script src='static/game.js'></script>
+    {% endblock %}
   </body>
 </html>
