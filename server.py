@@ -1,18 +1,23 @@
-from flask import Flask, render_template, jsonify, request, session, redirect, flash
+from flask import Flask, render_template, jsonify, request, session, redirect
 import os
 import random
+from model import connect_to_db, Word
 
 app = Flask(__name__)
 app.secret_key = os.environ['SECRET']
 
-WORDS = ['blue', 'zebra', 'potato']
+
+def pick_word():
+
+    words = Word.query.all()
+    return random.choice(words).word
 
 
 @app.route('/')
 def index():
 
     if 'word' not in session:
-        session['word'] = random.choice(WORDS)
+        session['word'] = pick_word()
         session['guesses'] = []
         session['bad_guesses'] = []
         session['qty_guesses'] = 6
@@ -79,5 +84,5 @@ def get_word():
 if __name__ == '__main__':
 
     app.debug = True
-    # connect_to_db(app)
+    connect_to_db(app)
     app.run(port=5000, host='0.0.0.0')
